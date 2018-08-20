@@ -1,20 +1,83 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div *ngIf="shouldShowDecisions" class="mat-typography container">
+  <div>
+    <mat-card>
+      <h1 class="mat-display-2">
+        Today you will not
+        <span class="accent-color">{{ notDoFormGroup.get('notDoControl').value }}</span>
+      </h1>
+      <h1 class="mat-display-2">
+        Today you will
+        <span class="accent-color">{{ doFormGroup.get('doControl').value }}</span>
+      </h1>
+    </mat-card>
+    <div class="fab-button">
+      <button mat-mini-fab (click)="shouldShowDecisions=false" color="primary">
+        <mat-icon aria-label="Selected decisions">view_agenda</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div *ngIf="!shouldShowDecisions" class="container">
+  <div>
+    <mat-vertical-stepper [linear]="true" #stepper>
+      <mat-step [stepControl]="notDoFormGroup">
+        <form [formGroup]="notDoFormGroup">
+          <ng-template matStepLabel>
+            <div class="question-label">
+              Deciding not to do <span class="accent-color">{{ notDoFormGroup.get('notDoControl').value }}</span>
+            </div>
+          </ng-template>
+          <mat-form-field>
+            <input type="text" required aria-required="true" placeholder="I will not" aria-label="I will not" matInput [formControl]="notDoControl"
+              [matAutocomplete]="doNotAuto">
+            <mat-autocomplete #doNotAuto="matAutocomplete">
+              <mat-option *ngFor="let option of notDoFilteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <div>
+            <button mat-button mat-raised-button color="primary" [disabled]="notDoFormGroup.invalid" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="doFormGroup">
+        <form [formGroup]="doFormGroup">
+          <ng-template matStepLabel>
+            <div class="question-label">
+              Deciding to do <span class="accent-color">{{ doFormGroup.get('doControl').value }}</span>
+            </div>
+          </ng-template>
+          <mat-form-field>
+            <input type="text" required aria-required="true" placeholder="I will" aria-label="I will" matInput [formControl]="doControl"
+              [matAutocomplete]="doAuto">
+            <mat-autocomplete #doAuto="matAutocomplete">
+              <mat-option *ngFor="let option of doFilteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <div>
+            <button mat-button mat-raised-button color="primary" [disabled]="doFormGroup.invalid" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>
+          <div class="question-label">
+            Done
+          </div>
+        </ng-template>
 
+        <div>
+          <button mat-button mat-raised-button color="primary" (click)="shouldShowDecisions=true">Commit</button>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+    <div *ngIf="hasDailyDecision()" class="fab-button">
+      <button mat-mini-fab (click)="shouldShowDecisions=true" color="primary">
+        <mat-icon aria-label="Selected decisions">view_agenda</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
