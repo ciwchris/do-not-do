@@ -1,0 +1,71 @@
+{
+  "configVersion": 1,
+  "index": "/do-not-do/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/do-not-do/favicon.ico",
+        "/do-not-do/index.html",
+        "/do-not-do/main.2f07b00ad565a3f68700.js",
+        "/do-not-do/polyfills.7a0e6866a34e280f48e7.js",
+        "/do-not-do/runtime.a66f828dca56eeb90e02.js",
+        "/do-not-do/styles.198994127176ea945744.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/do-not-do/assets/icons/icon-128x128.png",
+        "/do-not-do/assets/icons/icon-144x144.png",
+        "/do-not-do/assets/icons/icon-152x152.png",
+        "/do-not-do/assets/icons/icon-192x192.png",
+        "/do-not-do/assets/icons/icon-384x384.png",
+        "/do-not-do/assets/icons/icon-512x512.png",
+        "/do-not-do/assets/icons/icon-72x72.png",
+        "/do-not-do/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/do-not-do/assets/icons/icon-128x128.png": "4ad663f26fc8ef6b764dbc23191fa5f3ed859b30",
+    "/do-not-do/assets/icons/icon-144x144.png": "7ce7a01523c1537012fde0b8aa3536c8c8ca3b5a",
+    "/do-not-do/assets/icons/icon-152x152.png": "cd417351d17af822a962e125948a2018eeb21630",
+    "/do-not-do/assets/icons/icon-192x192.png": "a78f0752f70cd1a4e5489cfefd4ebf35ed84c490",
+    "/do-not-do/assets/icons/icon-384x384.png": "044ce6bb708c15295f3438a3df80341c904e633b",
+    "/do-not-do/assets/icons/icon-512x512.png": "af221861f151b734f8910a3f5048d79623f97e02",
+    "/do-not-do/assets/icons/icon-72x72.png": "97a885f3eaf60ceb83f50fd4adcebe12eac621ed",
+    "/do-not-do/assets/icons/icon-96x96.png": "bac85d290c13c309f2af4bf12fa5f86249713534",
+    "/do-not-do/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/do-not-do/index.html": "a6c8888cc940dce351e112460f5a6b7db5de0102",
+    "/do-not-do/main.2f07b00ad565a3f68700.js": "3e2c53d2f6b55001e1ebeeddb0918d63adee8f8b",
+    "/do-not-do/polyfills.7a0e6866a34e280f48e7.js": "9f0b8341c0a0caec1581da2f255eb5dbb8e12303",
+    "/do-not-do/runtime.a66f828dca56eeb90e02.js": "078e320cc6fdaf355836c3b1c52b059cdd33fc7e",
+    "/do-not-do/styles.198994127176ea945744.css": "3a9909fea97138b28d798ac3159c768d67e74c8d"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
