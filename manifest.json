@@ -2,7 +2,7 @@
     "name": "Do Not Do",
     "short_name": "Do Not Do",
     "theme_color": "#009688",
-    "background_color": "#f009688",
+    "background_color": "#009688",
     "display": "standalone",
     "scope": "/do-not-do/",
     "start_url": "/do-not-do/",
