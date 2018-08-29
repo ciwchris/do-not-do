@@ -2,14 +2,14 @@
     "index": "/index.html",
     "assetGroups": [
         {
-            "name": "app",
+            "name": "do-not-do-app",
             "installMode": "prefetch",
             "resources": {
                 "files": ["/favicon.ico", "/index.html", "/*.css", "/*.js", "/*.ttf", "/*.woff2"]
             }
         },
         {
-            "name": "assets",
+            "name": "do-not-do-assets",
             "installMode": "lazy",
             "updateMode": "prefetch",
             "resources": {
