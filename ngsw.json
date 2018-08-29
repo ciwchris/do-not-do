@@ -3,7 +3,7 @@
   "index": "/do-not-do/index.html",
   "assetGroups": [
     {
-      "name": "app",
+      "name": "do-not-do-app",
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
@@ -17,7 +17,7 @@
       "patterns": []
     },
     {
-      "name": "assets",
+      "name": "do-not-do-assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
